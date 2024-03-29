@@ -20,7 +20,7 @@ def train_save_model(cleaned_df, outcome_df):
     """
     
     ## This script contains a bare minimum working example
-    random.seed(1) # not useful here because logistic regression deterministic
+    #random.seed(1) # not useful here because logistic regression deterministic
     
     # Combine cleaned_df and outcome_df
     model_df = pd.merge(cleaned_df, outcome_df, on="nomem_encr")
@@ -32,7 +32,7 @@ def train_save_model(cleaned_df, outcome_df):
     model = LogisticRegression()
 
     # Fit the model
-    model.fit(model_df[['age']], model_df['new_child'])
+    model.fit(model_df[['age', 'gender_bg']], model_df['new_child']) # <------- ADDED VARIABLE
 
     # Save the model
     joblib.dump(model, "model.joblib")

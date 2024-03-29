@@ -47,12 +47,14 @@ def clean_df(df, background_df=None):
     keepcols = [
         "nomem_encr",  # ID variable required for predictions,
         "age"          # newly created variable
+        ,"gender_bg"  # <--------ADDED VARIABLE
     ] 
 
     # Keeping data with variables selected
     df = df[keepcols]
 
     return df
+
 
 
 def predict_outcomes(df, background_df=None, model_path="model.joblib"):
