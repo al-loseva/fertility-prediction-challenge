@@ -32,7 +32,8 @@ def train_save_model(cleaned_df, outcome_df):
     model = LogisticRegression()
 
     # Fit the model
-    model.fit(model_df[['age', 'gender_bg']], model_df['new_child']) # <------- ADDED VARIABLE
+    model.fit(model_df[['age', 'gender_bg']], model_df['new_child']) # <------- ADDED VARIABLE #
 
     # Save the model
     joblib.dump(model, "model.joblib")
+    
